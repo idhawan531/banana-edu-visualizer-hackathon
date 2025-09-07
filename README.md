@@ -7,3 +7,5 @@ Generate consistent character-driven educational illustrations across different 
 - Character consistency across educational contexts
 - Science & History concept visualization  
 - Teacher-friendly input interface
+
+To access the demo please follow this link - https://banana-edu-visualizer-hackatho-we2n3qsp7axcayhgpbbcbe.streamlit.app/
