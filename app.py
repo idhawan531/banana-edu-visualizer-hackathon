@@ -255,10 +255,10 @@ if st.session_state.base_character:
                     4. Keep the character's proportions and style consistent.
 
                     SCENE REQUIREMENTS:
-                    - Style: Clear educational diagram with bright colors.
-                    - Make the concept easy to understand for students.
-                    - Include labeled elements and simple explanations.
-                    - Ensure the character is actively involved in demonstrating the concept.
+                    - Style: Clear educational diagram with bright colors
+                    - Make the concept easy to understand for students
+                    - Include labeled elements and simple explanations
+                    - Ensure the character is actively involved in demonstrating the concept
                     - Text Requirements:
                         * All text MUST be in clear, legible font
                         * Double-check ALL spellings for accuracy
@@ -270,7 +270,12 @@ if st.session_state.base_character:
                         * Digestive system
                         * Evaporation
                         * Precipitation
-                    - If unsure about a spelling, use basic terms instead."""
+                    - If unsure about a spelling, use basic terms instead
+
+                    QUALITY CHECK:
+                    - Verify all elements accurately represent the scientific concept
+                    - Ensure educational accuracy in diagrams and labels
+                    - Confirm the visualization helps explain the concept clearly."""
 
                     # Call the generate_image function with the base character as reference
                     concept_img_data = generate_image(prompt, st.session_state.base_character)
