@@ -179,14 +179,13 @@ This project is licensed under the [Creative Commons Attribution 4.0 Internation
 
 ## 🏆 Hackathon Information
 
-This project was developed for the **Nano Banana 48 Hour Hackathon by Google**, showcasing the capabilities of Gemini 2.5 Flash Image for educational content creation.
+This project was developed for the **Nano Banana Hackathon by Google**, showcasing the capabilities of Gemini 2.5 Flash Image for educational content creation.
 
 ## 📞 Contact
 
 - **Live Application**: [EduVisualizer on Streamlit Cloud](https://banana-edu-visualizer-hackatho-we2n3qsp7axcayhgpbbcbe.streamlit.app/)
 - **Project Repository**: [GitHub Link](https://github.com/idhawan531/banana-edu-visualizer-hackathon/)
 - **Issues**: Report bugs and request features through GitHub Issues
-- **Hackathon**: Nano Banana 48 Hour Hackathon Submission
 
 ***
 
