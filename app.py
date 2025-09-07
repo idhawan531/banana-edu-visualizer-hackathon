@@ -258,7 +258,8 @@ if st.session_state.base_character:
                     - Style: Clear educational diagram with bright colors.
                     - Make the concept easy to understand for students.
                     - Include labeled elements and simple explanations.
-                    - Ensure the character is actively involved in demonstrating the concept."""
+                    - Ensure the character is actively involved in demonstrating the concept
+                    - Most importantly make TRIPLE sure that spellings are correct."""
 
                     # Call the generate_image function with the base character as reference
                     concept_img_data = generate_image(prompt, st.session_state.base_character)
@@ -319,7 +320,7 @@ if st.session_state.concept_images:
             with cols[1]:
                 concept = concept_list[i + 1]
                 st.image(st.session_state.concept_images[concept], caption=concept)
-                
+
 # Image Editing Section
 if st.session_state.concept_images and st.session_state.base_character:
     st.subheader("Edit Your Generated Concept Scene")
