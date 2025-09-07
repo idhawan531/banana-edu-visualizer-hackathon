@@ -2,8 +2,6 @@
 
 **Create consistent educational illustrations with the SAME character across different concepts using Google's Gemini 2.5 Flash Image API.**
 
-![Python](https://img.shields.io/badge/pythonensehon by Google*
-
 ## 🚀 **[Try EduVisualizer Live!](https://banana-edu-visualizer-hackatho-we2n3qsp7axcayhgpbbcbe.streamlit.app/)**
 
 **No installation required - Start creating educational visuals immediately!**
@@ -174,7 +172,10 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+**Attribution Requirements**: If you use, modify, or distribute this work, you must provide appropriate credit and indicate if changes were made.
+
 
 ## 🏆 Hackathon Information
 
@@ -183,7 +184,7 @@ This project was developed for the **Nano Banana 48 Hour Hackathon by Google**, 
 ## 📞 Contact
 
 - **Live Application**: [EduVisualizer on Streamlit Cloud](https://banana-edu-visualizer-hackatho-we2n3qsp7axcayhgpbbcbe.streamlit.app/)
-- **Project Repository**: [GitHub Link]
+- **Project Repository**: [[GitHub Link](https://github.com/idhawan531/banana-edu-visualizer-hackathon/]
 - **Issues**: Report bugs and request features through GitHub Issues
 - **Hackathon**: Nano Banana 48 Hour Hackathon Submission
 
