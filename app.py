@@ -290,9 +290,23 @@ if st.session_state.base_character:
 if st.session_state.concept_images:
     st.subheader("Your Generated Concepts Gallery")
     st.markdown("See how your character appears across different concepts:")
-
+    
+    # Create a list of all concept names, including the edited ones
+    # We'll sort them so that original concepts come first, followed by their edited versions
+    concept_list = []
+    for concept in st.session_state.concept_images.keys():
+        if concept.startswith("Edited_"):
+            # If it's an edited concept, add it after its original counterpart
+            original_concept = concept[7:]  # Remove "Edited_" prefix
+            if original_concept not in concept_list:
+                concept_list.append(original_concept)
+            concept_list.append(concept)
+        else:
+            # If it's an original concept, just add it
+            if concept not in concept_list:
+                concept_list.append(concept)
+    
     # Create rows of 2 columns for gallery
-    concept_list = list(st.session_state.concept_images.keys())
     for i in range(0, len(concept_list), 2):
         cols = st.columns(2)
         # First concept in row
@@ -305,6 +319,66 @@ if st.session_state.concept_images:
             with cols[1]:
                 concept = concept_list[i + 1]
                 st.image(st.session_state.concept_images[concept], caption=concept)
+                
+# Image Editing Section
+if st.session_state.concept_images and st.session_state.base_character:
+    st.subheader("Edit Your Generated Concept Scene")
+    
+    # Select which concept scene to edit
+    concepts_to_edit = list(st.session_state.concept_images.keys())
+    selected_concept_for_edit = st.selectbox(
+        "Select a concept scene to edit",
+        concepts_to_edit,
+        index=0
+    )
+    
+    # Get the image data for the selected concept
+    current_image_data = st.session_state.concept_images[selected_concept_for_edit]
+    
+    # Display the original image
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image(current_image_data, caption=f"Original {selected_concept_for_edit} Scene")
+    
+    # Prompt for editing
+    with col2:
+        edit_prompt = st.text_area(
+            "Describe the edits you want to make to this image:",
+            "For example: 'Add a label pointing to the sun', 'Make the plant larger', 'Change the background to a classroom'",
+            height=100
+        )
+        
+        if st.button("Apply Edits", type="primary"):
+            if not edit_prompt.strip():
+                st.error("Please enter an edit description.")
+            else:
+                with st.spinner(f"Applying edits to {selected_concept_for_edit} scene..."):
+                    try:
+                        # Create a prompt that includes the original image as reference
+                        # and describes the desired changes
+                        full_prompt = f"""You are an expert educational illustrator.
+                        You have been given the following image of {selected_concept_for_edit}.
+                        Apply these edits to the image:
+                        {edit_prompt}
+                        
+                        IMPORTANT INSTRUCTIONS:
+                        1.  Keep the main character from the original image (use it as a reference).
+                        2.  Maintain all physical features of the character (appearance, clothing, style).
+                        3.  Make the requested changes clearly visible and relevant to the educational concept.
+                        4.  Ensure the final image remains a clear educational diagram."""
+                        
+                        # Call the generate_image function with the original image as reference
+                        edited_img_data = generate_image(full_prompt, current_image_data)
+                        
+                        # Store the edited image
+                        st.session_state.concept_images[f"Edited_{selected_concept_for_edit}"] = edited_img_data
+                        
+                        # Display the result
+                        st.success("Edits applied successfully!")
+                        st.image(edited_img_data, caption=f"Edited {selected_concept_for_edit} Scene")
+                        
+                    except Exception as e:
+                        st.error(f"Error applying edits: {str(e)}")
 
 # Add pre-generated examples as fallback (for submission)
 with st.expander("Pre-generated Examples (For Submission Verification)"):
