@@ -157,10 +157,12 @@ def analyze_image_and_get_fixes(image_data, user_concept):
         RESPONSE FORMAT:
         Return a JSON list of specific, actionable fixes. Each fix should be clear and implementable.
         Examples: 
-        ["Fix spelling: 'photosynthasis' to 'P H O T O S Y N T H E S I S'",
-         "Add arrow showing energy flow from sun to plant",
-         "Make mathematical equation '2+2=5' correct to '2+2=4'",
-         "Reposition character to actively demonstrate the concept"]
+        ["Fix spelling: "PHOTOSTHNESIS" → "PHOTOSYNTHESIS", "GUGAR" → "SUGAR", "Dixoide" → "Dioxide", "Chlorojhplll" → "Chlorophyll",
+        Correct chemical equation: "6CO₂ + 6H₂O + Light Energy → C₆H₁₂O₆ + 6O₂",
+        Add "Chlorophyll" as a key component in the process,
+        Fix arrow directions: Water should go up from roots, glucose should go out from leaves,
+        Clarify that the process happens in chloroplasts within the leaves,
+        Mathematical correction: "2 x 5 = 8 → 2 x 5 = 10"]
 
         IMPORTANT: Return ONLY the JSON list. No other text or explanation.
         If the image is perfect, return an empty list: []
