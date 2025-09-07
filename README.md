@@ -184,7 +184,7 @@ This project was developed for the **Nano Banana 48 Hour Hackathon by Google**, 
 ## 📞 Contact
 
 - **Live Application**: [EduVisualizer on Streamlit Cloud](https://banana-edu-visualizer-hackatho-we2n3qsp7axcayhgpbbcbe.streamlit.app/)
-- **Project Repository**: [[GitHub Link](https://github.com/idhawan531/banana-edu-visualizer-hackathon/]
+- **Project Repository**: [GitHub Link](https://github.com/idhawan531/banana-edu-visualizer-hackathon/)
 - **Issues**: Report bugs and request features through GitHub Issues
 - **Hackathon**: Nano Banana 48 Hour Hackathon Submission
 
