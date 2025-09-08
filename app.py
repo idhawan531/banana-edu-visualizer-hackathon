@@ -21,8 +21,9 @@ st.set_page_config(
 )
 
 # Title and description
-st.title("📚 AI-Powered Educational Concept Visualizer")
+st.title("📚 EduVisualizer")
 st.markdown("""
+AI-Powered Educational Concept Visualizer
 Create consistent educational illustrations with the SAME character across different concepts.
 This demo uses AI to review and fix errors in generated images.
 """)
@@ -396,15 +397,33 @@ if st.session_state.concept_images and st.session_state.base_character:
         index=0
     )
     current_image_data = st.session_state.concept_images[selected_concept_for_edit]
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image(current_image_data, caption=f"Original {selected_concept_for_edit} Scene")
-    with col2:
+    
+    # Create container for images
+    image_container = st.container()
+    
+    # Create container for edit controls
+    edit_container = st.container()
+    
+    # Display images side by side in the image container
+    with image_container:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image(current_image_data, caption=f"Original {selected_concept_for_edit} Scene")
+        with col2:
+            if f"Edited_{selected_concept_for_edit}" in st.session_state.concept_images:
+                st.image(st.session_state.concept_images[f"Edited_{selected_concept_for_edit}"], 
+                        caption=f"Edited {selected_concept_for_edit} Scene")
+            else:
+                st.info("Edited version will appear here")
+    
+    # Edit controls in separate container
+    with edit_container:
         edit_prompt = st.text_area(
             "Describe the edits you want to make to this image:",
             "For example: 'Add a label pointing to the sun', 'Make the plant larger', 'Change the background to a classroom'",
             height=100
         )
+        
         if st.button("Apply Edits", type="primary"):
             if not edit_prompt.strip():
                 st.error("Please enter an edit description.")
@@ -422,8 +441,10 @@ if st.session_state.concept_images and st.session_state.base_character:
                         4. Ensure the final image remains a clear educational diagram."""
                         edited_img_data = generate_image(full_prompt, current_image_data)
                         st.session_state.concept_images[f"Edited_{selected_concept_for_edit}"] = edited_img_data
+                        st.session_state.api_calls += 1
                         st.success("Edits applied successfully!")
-                        st.image(edited_img_data, caption=f"Edited {selected_concept_for_edit} Scene")
+                        # Force rerun to update the image in the right column
+                        st.rerun()
                     except Exception as e:
                         st.error(f"Error applying edits: {str(e)}")
 
